@@ -130,7 +130,7 @@ class Exporter:
 
 
     def export(self, data):
-        url = "http://127.0.0.1:88/sensor/upload"
+        url = "https://aqicn.org/sensor/upload"
         r= fetch(url, data={"opa":data,"config":self.config.json()}, method="POST")
         if r.status_code!=200:
             print("Sorry, failed to upload to the WAQI server at %s: http error %d"%(url,r.status_code))
