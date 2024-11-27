@@ -5,7 +5,7 @@ This standalone python script can be used to export your Puple Air real-time dat
 The script uses the local PA API endpoint (`/json`), so you need to execute this script on the same network
 as your PA device.
 
-## Configuration
+## Configuration with the local API endpoint
 
 Before starting, make sure to configure the exporter, by editing the `opa.ini` file.
 You need to configure the `IP` address of you PA device.
@@ -30,6 +30,20 @@ token = dummy-token-for-test-purpose-only
 
 
 You can then run the script using  `python opa.py`
+
+
+## Configuration with the PA cloud API endpoint 
+
+It is also possible to re-export your data from the PA cloud server, but you will
+first need to request an API key from PA: https://community.purpleair.com/t/creating-api-keys/3951
+
+Once you have your key, you need to edit the `opa.ini` file and input the `pa_remote_api` section.
+
+```ini
+[pa_remote_api]
+sensor_index = 21436
+api_key = B144C732-11DE-11EE-A445-42098A784009
+```
 
 ## Setup
 
