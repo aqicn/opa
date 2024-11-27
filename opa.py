@@ -104,25 +104,12 @@ def fetch(
 
 class Exporter:
     
-    # def fetch_gaia(gaia_ip_address: str):
-    #     url = "http://"+gaia_ip_address+"/realtime"
-    #     r = fetch(url)
-    #     if r.status_code!=200:
-    #         print("Sorry, failed to access the local %s: http error %d"%(url,r.status_code))
-    #         return None
-    #     return r.json()
-
-    def load_sample_purple_air_data(self):
-        with open('pa.json', 'r') as file:
-            return json.load(file)
-    
     def __init__(self):
         self.config = Configuration()
         
     def run(self):
         while True:
             data = self.fetch_purple_air(self.config.IP())
-            data = self.load_sample_purple_air_data()
             if data is not None:
                 self.export(data)
             time.sleep(60)
